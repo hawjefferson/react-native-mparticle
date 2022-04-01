@@ -38,9 +38,9 @@ jobs:
       working-directory: sample/ios
       run: pod install
 
-    - name: "XCode build"
-      working-directory: sample/ios
-      run: xcodebuild -allowProvisioningUpdates -workspace sampleApp.xcworkspace -scheme sampleApp -destination 'platform=iOS Simulator,name=iPhone 11,OS=latest'
+    - name: "Run iOS"
+      working-directory: sample
+      run: npx react-native run-ios
 
   build-android:
     name: "Build Android Sample App"
@@ -58,9 +58,9 @@ jobs:
       working-directory: sample
       run: npm install; yarn install
 
-    - name: "Android Build"
-      working-directory: sample/android
-      run: ./gradlew assembleDebug
+    - name: "Run Android"
+      working-directory: sample
+      run: npx react-native run-android
 
   android-unit-tests:
     name: "Run Android Unit Tests"
